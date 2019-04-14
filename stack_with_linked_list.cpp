@@ -166,7 +166,3 @@ int nama_menu(){
   system("cls");
   return menu;
 }
-     
-        
-        
-    
