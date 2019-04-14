@@ -28,7 +28,7 @@ void setawal(){
  }
  
  bool isFull(){
-  if(tumpuk.top == -1){
+  if(tumpuk.top == MAX_STACK_SIZE-1){
     return 1;
   }
   else{
@@ -53,7 +53,8 @@ void push(int input){
       tmp->next=head;
       head=tmp;
     }
-  cout<<"Data Push\n";
+  cout<<"\nData Sudah Masuk\n\n";
+  cout<<"klik untuk melanjutkan...";
   tumpuk.top++;
  }
 }
@@ -86,7 +87,7 @@ void print(){
     cout<<"Stack Kosong"<<endl;
   }
   else{
-    cout<<"Isi Stack : "<<endl;
+    cout<<"Isi Data : "<<endl;
     Element *tmp = new Element;
     tmp = head;
   while(tmp!=NULL)
@@ -108,7 +109,7 @@ do{
   menu = nama_menu();
   switch(menu){
     case 1:
-      cout<<"Data Push : ";cin>>val;
+      cout<<"Data Masukan : ";cin>>val;
       obj.push(val);
       cin.ignore();
       cin.get();
@@ -118,7 +119,7 @@ do{
         cout<<"Stack Kosong"<<endl;
       }
       else{
-        cout<<"Data ";obj.getTop();cout<<" akan diapus";
+        cout<<"Data ";obj.getTop();cout<<" Akan Dihapus";
         cin.get();
         obj.pop();
       }
@@ -128,7 +129,7 @@ do{
         cout<<"Stack Kosong"<<endl;
         }
         else{
-          cout<<"Top Elemen = ";obj.getTop();
+          cout<<"Data Teratas = ";obj.getTop();
           cin.get();
         }
         break;
@@ -139,7 +140,8 @@ do{
     case 5:
       exit(0);
     default:
-      cout<<"\t\nPilian Salah";
+      cout<<"\nPilihan Salah !!!";
+      cout<<"\n\nklik untuk kembali...";
       cin.get();
       break;
     }
@@ -151,13 +153,13 @@ do{
 }
   
 int nama_menu(){
-  cout<<"Stack"<<endl<<endl;
+  cout<<"\t----- Memodifikasi Data -----"<<endl<<endl;
   int menu;
-  cout<<"Pilian : "<<endl<<endl;
-  cout<<"1. Push"<<endl;
-  cout<<"2. Pop"<<endl;
-  cout<<"3. Top"<<endl;
-  cout<<"4. Tampilkan Stack"<<endl;
+  cout<<"Daftar Pilihan : "<<endl<<endl;
+  cout<<"1. Masukkan Data"<<endl;
+  cout<<"2. Menghapus Data Terakhir"<<endl;
+  cout<<"3. Tampilkan Data Teratas"<<endl;
+  cout<<"4. Tampilkan Data"<<endl;
   cout<<"5. Keluar"<<endl<<endl;
   cout<<"Pilihan : ";cin>>menu;
   cin.ignore();
